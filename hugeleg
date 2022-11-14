@@ -1,0 +1,27 @@
+local Character = game.Players.LocalPlayer.Character
+
+local Hum = {
+    "BodyTypeScale",
+    "BodyProportionScale",
+    "BodyWidthScale",
+    "BodyHeightScale",
+    "BodyDepthScale",
+    "HeadScale"
+}
+
+function Remove()
+    repeat task.wait() until Character.LeftFoot:FindFirstChild("OriginalSize")
+    Character.LeftFoot.OriginalSize:Destroy()
+    Character.LeftLowerLeg.OriginalSize:Destroy()
+    Character.LeftUpperLeg.OriginalSize:Destroy()
+end
+
+Character.LeftLowerLeg.LeftKneeRigAttachment.OriginalPosition:Destroy()
+Character.LeftUpperLeg.LeftKneeRigAttachment.OriginalPosition:Destroy()
+Character.LeftLowerLeg.LeftKneeRigAttachment:Destroy()
+Character.LeftUpperLeg.LeftKneeRigAttachment:Destroy()
+
+for i=1,6 do
+    Remove()
+    Character.Humanoid[Hum[i]]:Destroy()
+end
